@@ -1,6 +1,8 @@
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
-
+env:
+    VITE_OPENAI_API_KEY: ${{ secrets.VITE_OPENAI_API_KEY }}
+    VITE_OPENAI_API_URL: ${{ secrets.VITE_OPENAI_API_URL }}
 on:
   # Runs on pushes targeting the default branch
   push:
