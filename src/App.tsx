@@ -10,7 +10,7 @@ const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const extractKeywords = async (text) => {
+  const extractKeywords = async (text: string) => {
     setLoading(true);
     setIsOpen(true);
 

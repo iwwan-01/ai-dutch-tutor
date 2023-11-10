@@ -11,7 +11,19 @@ import {
   CircularProgress,
 } from '@chakra-ui/react';
 
-const KeywordsModal = ({ keywords, loading, isOpen, closeModal }) => {
+interface KeywordModalProps {
+  keywords: string;
+  loading: boolean;
+  isOpen: boolean;
+  closeModal(): void;
+}
+
+const KeywordsModal: React.FC<KeywordModalProps> = ({
+  keywords,
+  loading,
+  isOpen,
+  closeModal,
+}) => {
   return (
     <>
       <Modal isOpen={isOpen} onClose={closeModal}>
