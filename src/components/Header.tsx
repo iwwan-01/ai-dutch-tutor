@@ -1,16 +1,16 @@
-import { Heading, Image, Text } from '@chakra-ui/react';
-import logo from '../assets/light-bulb.svg';
+import netherlandsFlag from '../assets/netherlands-flag.svg';
 
 const Header = () => {
   return (
     <>
-      <Image src={logo} alt='logo' width={100} marginBottom='1rem' />
-      <Heading color='white' marginBottom='1rem'>
-        AI Keyword Extractor
-      </Heading>
-      <Text fontSize={25} textAlign='center'>
-        Paste in your text below and we'll extract the keywords for you
-      </Text>
+      <div className='flex flex-col justify-center items-center gap-y-4'>
+        <img src={netherlandsFlag} alt='Netherlands Flag' width={100} />
+        <h1 className='text-5xl font-bold '>AI Dutch Tutor</h1>
+        <h2 className='text-sm mb-4 text-center'>
+          Paste in your text below and I will provide you with a vocabulary list
+          of keywords from the pasted text along with their English translation
+        </h2>
+      </div>
     </>
   );
 };

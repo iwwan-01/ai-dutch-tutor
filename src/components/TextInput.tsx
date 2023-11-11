@@ -1,51 +1,45 @@
 import { useState } from 'react';
-import { Textarea, Button, useToast } from '@chakra-ui/react';
+
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+
+import { Toaster } from '@/components/ui/toaster';
+import { useToast } from '@/components/ui/use-toast';
 
 interface TextInputProps {
-  extractKeywords(text: string): void;
+  generateVocabularyList(text: string): void;
 }
 
-const TextInput: React.FC<TextInputProps> = ({ extractKeywords }) => {
+const TextInput: React.FC<TextInputProps> = ({ generateVocabularyList }) => {
   const [text, setText] = useState('');
 
-  const toast = useToast();
+  const { toast } = useToast();
 
   const submitText = () => {
     if (text === '') {
       toast({
         title: 'Text field is empty',
-        description: 'Please enter some text to extract keywords',
-        status: 'error',
-        duration: 5000,
-        isClosable: false,
+        description: 'Please enter some text to extract vocabulary',
       });
     } else {
-      extractKeywords(text);
+      generateVocabularyList(text);
     }
   };
 
   return (
     <>
-      <Textarea
-        bg='blue.400'
-        color='white'
-        padding={4}
-        marginTop={6}
-        height={200}
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-
-      <Button
-        bg='blue.500'
-        color='white'
-        marginTop={4}
-        width='100%'
-        _hover={{ bg: 'blue.700' }}
-        onClick={submitText}
-      >
-        Extract Keywords
-      </Button>
+      <div className='flex flex-col w-full gap-y-4'>
+        <Textarea
+          placeholder='Please paste in your text in Dutch.'
+          onChange={(e) => setText(e.target.value)}
+          value={text}
+          minLength={10}
+          maxLength={500}
+          rows={10}
+        />
+        <Button onClick={submitText}>Generate Vocabulary List</Button>
+        <Toaster />
+      </div>
     </>
   );
 };

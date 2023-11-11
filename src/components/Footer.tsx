@@ -1,14 +1,18 @@
-import { Box, Image, Text, Flex } from '@chakra-ui/react';
-import logo from '../assets/openai.png';
-
 const Footer = () => {
   return (
-    <Box>
-      <Flex justifyContent='center' alignItems='center'>
-        <Image src={logo} marginRight={1} />
-        <Text>Powered By Open AI</Text>
-      </Flex>
-    </Box>
+    <>
+      <p className='text-center mt-4'>
+        Powered by{' '}
+        <a
+          className='underline hover:text-green-400 transition-colors duration-300'
+          href='https://platform.openai.com/docs/introduction'
+          target='_blank'
+        >
+          {' '}
+          OpenAI API
+        </a>
+      </p>
+    </>
   );
 };
 export default Footer;
