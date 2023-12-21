@@ -31,15 +31,14 @@ const App = () => {
           {
             role: 'user',
             content:
-              "Given the following Dutch text, please extract keywords and provide them in the format of an array of JSON objects. Each object should have properties 'Dutch' for the Dutch word and 'English' for its English translation. Limit the output to a maximum of 8 JSON objects.\n\n" +
+              "Given the following Dutch text, please extract keywords (excluding numbers) and provide them in the format of an array of JSON objects. Each object should have properties 'Dutch' for the Dutch word and 'English' for its English translation. Limit the output to a maximum of 8 JSON objects.\n\n" +
               text,
           },
         ],
         temperature: 0.5,
-        // max_tokens: 60,
-        // top_p: 1.0,
-        // frequency_penalty: 0.8,
-        // presence_penalty: 0.0,
+        top_p: 1.0,
+        frequency_penalty: 0.8,
+        presence_penalty: 0.0,
       }),
     };
 
