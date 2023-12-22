@@ -15,6 +15,7 @@ const App = () => {
     setLoading(true);
     setIsOpen(true);
 
+    // This is the HTTP request that is sent to OpenAI API.
     const options = {
       method: 'POST',
       headers: {
